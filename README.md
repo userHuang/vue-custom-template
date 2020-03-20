@@ -1,6 +1,6 @@
 # vue-custom-template
 
-> 自定义vue cli 模板
+> 基于vue2.0 自定义vue cli 模板
 
 ## 
 

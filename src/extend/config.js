@@ -5,6 +5,7 @@
  *  production:线上版地址
  */
 import BaseConfig from './base'
+console.log(process.env, '---process---')
 const Config = require('./' + process.env.NODE_ENV)
 Object.assign(BaseConfig, Config.default)
 export default BaseConfig

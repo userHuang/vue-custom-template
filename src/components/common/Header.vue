@@ -53,8 +53,6 @@ export default {
   },
   methods: {
     loyout () {
-      console.log('aaaa')
-      window.sessionStorage.clear()
       window.location.href = '/'
     }
   }

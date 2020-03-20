@@ -1,4 +1,4 @@
-let BaseConfig = {  // 开发模式配置
+let BaseConfig = {  // 线上模式配置
   ceshiHost: 'https://movie.douban.com/j',
   coocaaHost: 'https://member.coocaa.com',
   debug: true,

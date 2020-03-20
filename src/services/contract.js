@@ -4,7 +4,7 @@ import Config from '@/extend/config'
 class ContractServices {
   request (params) {
     const baseParams = {
-      url: Config.host + params.url
+      url: Config.coocaaHost + params.url
     }
     Object.assign(params, baseParams)
     return Server(params)
@@ -12,12 +12,12 @@ class ContractServices {
 }
 
 const Services = new ContractServices()
-
+// {get: params, post: data}
 export default {
   getDetail (data) {
     return Services.request({
-      url: '/chart/top_list',
-      data: data,
+      url: '/voicebot/livechannel/commonSetting',
+      params: data,
       method: 'get'
     })
   }
