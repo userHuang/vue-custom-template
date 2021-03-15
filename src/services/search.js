@@ -1,12 +1,12 @@
 import Config from '@/extend/config'
 import BaseServer from '@/services/baseServer.js'
 
-const Services = new BaseServer(Config.ceshiHost)
+const Services = new BaseServer(Config.baiduHost)
 // {get: params, post: data}
 export default {
-  getTop (data) {
+  searchValue (data) {
     return Services.request({
-      url: 'j/chart/top_list',
+      url: 's',
       params: data,
       method: 'get'
     })

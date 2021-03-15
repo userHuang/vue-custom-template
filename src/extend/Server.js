@@ -6,8 +6,7 @@ var instance = axios.create({
   timeout: 60 * 60 * 1000,
   headers: {},
   trimNull: false, // 是否去除空值
-  withCredentials: true, // default
-  needLoading: true, // 是否需要加载效果
+  withCredentials: false // default
 })
 instance.interceptors.request.use(function (config) {
   const timeStamp = {
@@ -39,17 +38,16 @@ instance.interceptors.request.use(function (config) {
   return Promise.reject(error)
 })
 
-instance.interceptors.response.use(function (response) {
-  if (response.config.needLoading) {}
+instance.interceptors.response.use(response => {
   var code = response.status
   if (code === 200) {
     return {data: response.data}
   } else {
     return Promise.reject(response)
   }
-}, function (error) {
+}, error => {
   var status = error.response && error.response.status
-  return Promise.reject(error)
+  return Promise.reject({status})
 })
 
 export default instance

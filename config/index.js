@@ -4,17 +4,6 @@
 
 const path = require('path')
 
-
-function getEvn () {
-  if (process.env.CODE_ENV === 'dev' || process.env.CODE_ENV === 'local') {
-    return 'dev'
-  } else if (process.env.CODE_ENV === 'beta') {
-    return 'qa'
-  } else {
-    return ''
-  }
-}
-
 module.exports = {
   dev: {
     // Paths
@@ -50,14 +39,6 @@ module.exports = {
     chainWebpack: config => {
       config.plugin('define').tap(args => {
         args[0]['process.env'].CODE_ENV = `"${process.env.CODE_ENV}"`
-        return args
-      })
-
-      config.plugin('html-index').tap(args => {
-        console.log(getEvn(), '=====ss====')
-        Object.assign(args[0], {
-          env: getEvn()
-        })
         return args
       })
     }
